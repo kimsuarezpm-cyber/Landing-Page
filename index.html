@@ -423,8 +423,8 @@ header>a:first-child>span{font-size:22px!important}
 <span style="font-size: 14px; font-weight: 700; color: #DFEF00">{{tp.count}}</span>
 </div>
 <div style="display: flex; gap: 12px">
-<button type="button" onClick="{{tp.prev}}" aria-label="Testimonio anterior" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #FFFFFF; font-size: 20px; cursor: pointer">←</button>
-<button type="button" onClick="{{tp.next}}" aria-label="Siguiente testimonio" class="ath-btn" style="--sh: #FFFFFF; width: 48px; height: 48px; border-radius: 50%; border: 0; background: #DFEF00; color: #0B0F0E; font-size: 20px; font-weight: 700; cursor: pointer">→</button>
+<button type="button" onClick="{{tp.prev}}" aria-label="Testimonio anterior" aria-disabled="{{tp.pvOff}}" style="width: 48px; height: 48px; border-radius: 50%; border: {{tp.pvBd}}; background: {{tp.pvBg}}; color: {{tp.pvCol}}; font-size: 20px; font-weight: 700; cursor: {{tp.pvCur}}; box-shadow: {{tp.pvSh}}; transition: background .3s ease, color .3s ease, box-shadow .3s ease">←</button>
+<button type="button" onClick="{{tp.next}}" aria-label="Siguiente testimonio" aria-disabled="{{tp.nxOff}}" style="width: 48px; height: 48px; border-radius: 50%; border: {{tp.nxBd}}; background: {{tp.nxBg}}; color: {{tp.nxCol}}; font-size: 20px; font-weight: 700; cursor: {{tp.nxCur}}; box-shadow: {{tp.nxSh}}; transition: background .3s ease, color .3s ease, box-shadow .3s ease">→</button>
 </div>
 </div>
 </section>
@@ -690,6 +690,7 @@ class Component extends DCLogic {
       row.addEventListener('scroll', () => {
         clearTimeout(t);
         t = setTimeout(() => {
+          if (this._tLock && Date.now() - this._tLock < 700) return;
           const c = row.querySelector('.ath-vcard');
           if (!c) return;
           const w = c.getBoundingClientRect().width + 24;
@@ -712,7 +713,10 @@ class Component extends DCLogic {
   }
   stepT(d) {
     const n = 5;
-    const i = Math.max(0, Math.min(n - 1, (this.state.tidx || 0) + d));
+    const cur = this.state.tidx || 0;
+    const i = Math.max(0, Math.min(n - 1, cur + d));
+    if (i === cur) return;
+    this._tLock = Date.now();
     this.scrollT(i);
   }
   playT(i) {
@@ -840,6 +844,9 @@ class Component extends DCLogic {
     return {
       img, athletes, counter, strip, steps, faqs, week, manif, tp: (() => {
         const tp = { count: String((this.state.tidx || 0) + 1).padStart(2, '0') + ' / 05', bar: (((this.state.tidx || 0) + 1) / 5 * 100) + '%', prev: () => this.stepT(-1), next: () => this.stepT(1) };
+        const ti = this.state.tidx || 0;
+        const st = (on, k) => { tp[k + 'Off'] = on ? 'false' : 'true'; tp[k + 'Bg'] = on ? '#DFEF00' : 'transparent'; tp[k + 'Col'] = on ? '#0B0F0E' : 'rgba(255,255,255,0.35)'; tp[k + 'Bd'] = on ? '2px solid #0B0F0E' : '1px solid rgba(255,255,255,0.2)'; tp[k + 'Sh'] = on ? '0 3px 0 #FFFFFF' : 'none'; tp[k + 'Cur'] = on ? 'pointer' : 'default'; };
+        st(ti > 0, 'pv'); st(ti < 4, 'nx');
         for (let i = 0; i < 5; i++) { tp['p' + i] = () => this.playT(i); tp['d' + i] = this.state.tplay === i ? 'none' : 'flex'; tp['c' + i] = this.state.tplay === i ? '' : 'is-idle'; tp['o' + i] = (this.state.tplay >= 0 && this.state.tplay !== i) ? '0.45' : '1'; }
         return tp;
       })(),
