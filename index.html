@@ -38,7 +38,8 @@ header nav a,header>a:last-child,.ath-eyebrow,button,label,select,input,footer,f
 .ath-heroimg{animation:ath-zoom 2.4s cubic-bezier(.2,.7,.2,1) both}
 .ath-dot{animation:ath-blink 1.6s ease-in-out infinite}
 .ath-grain{background-image:repeating-radial-gradient(circle at 17% 32%,rgba(255,255,255,0.035) 0 1px,transparent 1px 3px),repeating-radial-gradient(circle at 71% 64%,rgba(0,0,0,0.25) 0 1px,transparent 1px 4px);mix-blend-mode:overlay;pointer-events:none}
-.ath-testi{scrollbar-width:thin;scrollbar-color:#DFEF00 transparent}.ath-testi::-webkit-scrollbar{height:6px}.ath-testi::-webkit-scrollbar-thumb{background:#DFEF00;border-radius:3px}@media (min-width: 1440px){.ath-testi{padding-left:calc((100vw - 1320px)/2)!important;scroll-padding-left:calc((100vw - 1320px)/2)!important}}
+@keyframes ath-ring{0%{box-shadow:0 0 0 0 rgba(223,239,0,.55)}100%{box-shadow:0 0 0 22px rgba(223,239,0,0)}}.ath-vplay-ic{animation:ath-ring 1.8s ease-out infinite;transition:transform .3s cubic-bezier(.2,.7,.2,1)}.ath-vplay:hover .ath-vplay-ic,.ath-vplay:focus-visible .ath-vplay-ic{transform:scale(1.12)}.ath-tvid.is-idle::-webkit-media-controls{display:none!important}.ath-tvid.is-idle::-webkit-media-controls-enclosure{display:none!important}.ath-vcard:hover{transform:translateY(-6px);box-shadow:0 14px 0 #DFEF00!important}.ath-testi{scrollbar-width:none}.ath-testi::-webkit-scrollbar{display:none}
+@media (min-width: 1440px){.ath-testi{padding-left:calc((100vw - 1320px)/2)!important;scroll-padding-left:calc((100vw - 1320px)/2)!important}}
 .ath-poster{transform:translateY(90px)}
 .ath-poster-c{transform:none}
 .ath-poster-far{transform:translateY(180px)}
@@ -365,28 +366,67 @@ header>a:first-child>span{font-size:22px!important}
 <p style="margin: 0; max-width: 420px; font-size: 18px; line-height: 1.6; color: #b9c4bf">Hablamos con deportistas de distintas disciplinas sobre cómo entrenan y les enseñamos una primera versión de Athletify.</p>
 </div>
 <div class="ath-testi" style="margin-top: clamp(40px, 5vw, 64px); display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: clamp(20px, 4vw, 56px); padding: 0 clamp(20px, 4vw, 56px) 28px">
-<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00">
-<video src="./assets/0e7534d9a8f59f1ac5fd94302b205e50.mp4" poster="./assets/f911ba5d4b1922681fe3cd0d6c4085c1.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Giovanny Nath" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000"></video>
+<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00; opacity: {{tp.o0}}; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, opacity .4s ease">
+<div style="position: relative; aspect-ratio: 16 / 9; background: #000">
+<video class="ath-tvid {{tp.c0}}" src="./assets/0e7534d9a8f59f1ac5fd94302b205e50.mp4" poster="./assets/f911ba5d4b1922681fe3cd0d6c4085c1.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Giovanny Nath" style="display: block; width: 100%; height: 100%; object-fit: cover; background: #000"></video>
+<button type="button" onClick="{{tp.p0}}" class="ath-vplay" aria-label="Ver testimonio de Giovanny Nath" style="position: absolute; inset: 0; display: {{tp.d0}}; align-items: center; justify-content: center; margin: 0; padding: 0; border: 0; cursor: pointer; background: linear-gradient(180deg, rgba(11,15,14,0.05) 35%, rgba(11,15,14,0.6) 100%)">
+<span class="ath-vplay-ic" aria-hidden="true" style="width: 84px; height: 84px; border-radius: 50%; background: #DFEF00; border: 2px solid #0B0F0E; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#0B0F0E"></path></svg></span>
+<span class="ath-ui" style="position: absolute; left: 16px; bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(11,15,14,0.75); color: #FFFFFF; font-size: 13px; font-weight: 700">0:37</span>
+</button>
+</div>
 <div class="ath-ui" style="padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700; color: #FFFFFF">Giovanny Nath</span><span style="font-size: 14px; color: #9aa39f">Triatleta, finisher Ironman 70.3</span></div>
 </div>
-<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00">
-<video src="./assets/1ee31d7513cb4ed06bcda5f66e070847.mp4" poster="./assets/b5a760bf7c15f2b054a0c420da06e347.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Carla Gordon" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000"></video>
+<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00; opacity: {{tp.o1}}; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, opacity .4s ease">
+<div style="position: relative; aspect-ratio: 16 / 9; background: #000">
+<video class="ath-tvid {{tp.c1}}" src="./assets/1ee31d7513cb4ed06bcda5f66e070847.mp4" poster="./assets/b5a760bf7c15f2b054a0c420da06e347.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Carla Gordon" style="display: block; width: 100%; height: 100%; object-fit: cover; background: #000"></video>
+<button type="button" onClick="{{tp.p1}}" class="ath-vplay" aria-label="Ver testimonio de Carla Gordon" style="position: absolute; inset: 0; display: {{tp.d1}}; align-items: center; justify-content: center; margin: 0; padding: 0; border: 0; cursor: pointer; background: linear-gradient(180deg, rgba(11,15,14,0.05) 35%, rgba(11,15,14,0.6) 100%)">
+<span class="ath-vplay-ic" aria-hidden="true" style="width: 84px; height: 84px; border-radius: 50%; background: #DFEF00; border: 2px solid #0B0F0E; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#0B0F0E"></path></svg></span>
+<span class="ath-ui" style="position: absolute; left: 16px; bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(11,15,14,0.75); color: #FFFFFF; font-size: 13px; font-weight: 700">0:26</span>
+</button>
+</div>
 <div class="ath-ui" style="padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700; color: #FFFFFF">Carla Gordon</span><span style="font-size: 14px; color: #9aa39f">Triatleta, finisher Ironman 70.3</span></div>
 </div>
-<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00">
-<video src="./assets/e078f96fcbb7c9108aae9213b212b1be.mp4" poster="./assets/81778656057fb20658ea3569002ffb70.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de deportista aficionado" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000"></video>
+<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00; opacity: {{tp.o2}}; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, opacity .4s ease">
+<div style="position: relative; aspect-ratio: 16 / 9; background: #000">
+<video class="ath-tvid {{tp.c2}}" src="./assets/e078f96fcbb7c9108aae9213b212b1be.mp4" poster="./assets/81778656057fb20658ea3569002ffb70.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Deportista aficionado" style="display: block; width: 100%; height: 100%; object-fit: cover; background: #000"></video>
+<button type="button" onClick="{{tp.p2}}" class="ath-vplay" aria-label="Ver testimonio de Deportista aficionado" style="position: absolute; inset: 0; display: {{tp.d2}}; align-items: center; justify-content: center; margin: 0; padding: 0; border: 0; cursor: pointer; background: linear-gradient(180deg, rgba(11,15,14,0.05) 35%, rgba(11,15,14,0.6) 100%)">
+<span class="ath-vplay-ic" aria-hidden="true" style="width: 84px; height: 84px; border-radius: 50%; background: #DFEF00; border: 2px solid #0B0F0E; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#0B0F0E"></path></svg></span>
+<span class="ath-ui" style="position: absolute; left: 16px; bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(11,15,14,0.75); color: #FFFFFF; font-size: 13px; font-weight: 700">0:22</span>
+</button>
+</div>
 <div class="ath-ui" style="padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700; color: #FFFFFF">Deportista aficionado</span></div>
 </div>
-<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00">
-<video src="./assets/f981b89157c8cb6bf58dd214fda59a9e.mp4" poster="./assets/97d0b8fb4b07a57057d2defab8eb30b7.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de deportistas aficionadas" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000"></video>
+<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00; opacity: {{tp.o3}}; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, opacity .4s ease">
+<div style="position: relative; aspect-ratio: 16 / 9; background: #000">
+<video class="ath-tvid {{tp.c3}}" src="./assets/f981b89157c8cb6bf58dd214fda59a9e.mp4" poster="./assets/97d0b8fb4b07a57057d2defab8eb30b7.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Deportistas aficionados" style="display: block; width: 100%; height: 100%; object-fit: cover; background: #000"></video>
+<button type="button" onClick="{{tp.p3}}" class="ath-vplay" aria-label="Ver testimonio de Deportistas aficionados" style="position: absolute; inset: 0; display: {{tp.d3}}; align-items: center; justify-content: center; margin: 0; padding: 0; border: 0; cursor: pointer; background: linear-gradient(180deg, rgba(11,15,14,0.05) 35%, rgba(11,15,14,0.6) 100%)">
+<span class="ath-vplay-ic" aria-hidden="true" style="width: 84px; height: 84px; border-radius: 50%; background: #DFEF00; border: 2px solid #0B0F0E; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#0B0F0E"></path></svg></span>
+<span class="ath-ui" style="position: absolute; left: 16px; bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(11,15,14,0.75); color: #FFFFFF; font-size: 13px; font-weight: 700">0:32</span>
+</button>
+</div>
 <div class="ath-ui" style="padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700; color: #FFFFFF">Deportistas aficionados</span></div>
 </div>
-<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00">
-<video src="./assets/4af01ec1c931aeed5ca7ae8d0a17f1c0.mp4" poster="./assets/715d6c497b66e10a791c423b6a45e7fb.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de deportistas aficionados" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000"></video>
+<div class="ath-vcard" style="flex: 0 0 clamp(300px, 44vw, 620px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: #151b19; border: 2px solid #0B0F0E; box-shadow: 0 8px 0 #DFEF00; opacity: {{tp.o4}}; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, opacity .4s ease">
+<div style="position: relative; aspect-ratio: 16 / 9; background: #000">
+<video class="ath-tvid {{tp.c4}}" src="./assets/4af01ec1c931aeed5ca7ae8d0a17f1c0.mp4" poster="./assets/715d6c497b66e10a791c423b6a45e7fb.jpg" controls="" preload="none" playsinline="" aria-label="Testimonio de Deportistas aficionados" style="display: block; width: 100%; height: 100%; object-fit: cover; background: #000"></video>
+<button type="button" onClick="{{tp.p4}}" class="ath-vplay" aria-label="Ver testimonio de Deportistas aficionados" style="position: absolute; inset: 0; display: {{tp.d4}}; align-items: center; justify-content: center; margin: 0; padding: 0; border: 0; cursor: pointer; background: linear-gradient(180deg, rgba(11,15,14,0.05) 35%, rgba(11,15,14,0.6) 100%)">
+<span class="ath-vplay-ic" aria-hidden="true" style="width: 84px; height: 84px; border-radius: 50%; background: #DFEF00; border: 2px solid #0B0F0E; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#0B0F0E"></path></svg></span>
+<span class="ath-ui" style="position: absolute; left: 16px; bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(11,15,14,0.75); color: #FFFFFF; font-size: 13px; font-weight: 700">0:31</span>
+</button>
+</div>
 <div class="ath-ui" style="padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 18px; font-weight: 700; color: #FFFFFF">Deportistas aficionados</span></div>
 </div>
 </div>
-<p class="ath-ui" aria-hidden="true" style="margin: 8px 0 0; padding: 0 clamp(20px, 4vw, 56px); max-width: 1320px; box-sizing: border-box; font-size: 14px; font-weight: 700; color: #DFEF00">Desliza para ver más →</p>
+<div class="ath-ui" style="max-width: 1320px; margin: 8px auto 0; padding: 0 clamp(20px, 4vw, 56px); box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 20px">
+<div style="display: flex; align-items: center; gap: 16px">
+<span style="position: relative; width: clamp(120px, 18vw, 220px); height: 4px; border-radius: 2px; background: rgba(255,255,255,0.15); overflow: hidden"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{tp.bar}}; background: #DFEF00; border-radius: 2px; transition: width .4s ease"></span></span>
+<span style="font-size: 14px; font-weight: 700; color: #DFEF00">{{tp.count}}</span>
+</div>
+<div style="display: flex; gap: 12px">
+<button type="button" onClick="{{tp.prev}}" aria-label="Testimonio anterior" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); background: transparent; color: #FFFFFF; font-size: 20px; cursor: pointer">←</button>
+<button type="button" onClick="{{tp.next}}" aria-label="Siguiente testimonio" class="ath-btn" style="--sh: #FFFFFF; width: 48px; height: 48px; border-radius: 50%; border: 0; background: #DFEF00; color: #0B0F0E; font-size: 20px; font-weight: 700; cursor: pointer">→</button>
+</div>
+</div>
 </section>
 <section id="lista" style="background: #DFEF00; color: #0B0F0E; padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 56px)">
 <div style="max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-end">
@@ -539,7 +579,7 @@ header>a:first-child>span{font-size:22px!important}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { sent: false, open: 0, idx: 0 };
+    this.state = { sent: false, open: 0, idx: 0, tplay: -1, tidx: 0 };
   }
   componentDidMount() {
     this.startTimer();
@@ -638,6 +678,55 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onScroll);
     setTimeout(() => { els = find(); update(); }, 300);
+  }
+  tEls() {
+    const roots = [document];
+    document.querySelectorAll('*').forEach((e) => { if (e.shadowRoot) roots.push(e.shadowRoot); });
+    let row = null; const vids = []; const cards = [];
+    roots.forEach((r) => { if (!row) row = r.querySelector('.ath-testi'); r.querySelectorAll('video.ath-tvid').forEach((v) => vids.push(v)); r.querySelectorAll('.ath-vcard').forEach((c) => cards.push(c)); });
+    if (row && !row._athBound) {
+      row._athBound = true;
+      let t = null;
+      row.addEventListener('scroll', () => {
+        clearTimeout(t);
+        t = setTimeout(() => {
+          const c = row.querySelector('.ath-vcard');
+          if (!c) return;
+          const w = c.getBoundingClientRect().width + 24;
+          const max = row.scrollWidth - row.clientWidth;
+          let i = Math.round(row.scrollLeft / w);
+          if (row.scrollLeft >= max - 4) i = cards.length - 1;
+          i = Math.max(0, Math.min(cards.length - 1, i));
+          if (i !== this.state.tidx) this.setState({ tidx: i });
+        }, 90);
+      }, { passive: true });
+    }
+    return { row, vids, cards };
+  }
+  scrollT(i) {
+    const { row, cards } = this.tEls();
+    if (!row || !cards[i]) return;
+    const pad = parseFloat(getComputedStyle(row).paddingLeft) || 0;
+    row.scrollTo({ left: Math.max(0, cards[i].offsetLeft - row.firstElementChild.offsetLeft + 0), behavior: 'smooth' });
+    this.setState({ tidx: i });
+  }
+  stepT(d) {
+    const n = 5;
+    const i = Math.max(0, Math.min(n - 1, (this.state.tidx || 0) + d));
+    this.scrollT(i);
+  }
+  playT(i) {
+    const { vids } = this.tEls();
+    vids.forEach((v, j) => { if (j !== i) { try { v.pause(); } catch (e) {} } });
+    const v = vids[i];
+    this.setState({ tplay: i });
+    this.scrollT(i);
+    if (!v) return;
+    if (!v._athBound) {
+      v._athBound = true;
+      v.addEventListener('ended', () => { if (this.state.tplay === i) this.setState({ tplay: -1 }); });
+    }
+    try { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); } catch (e) {}
   }
   componentWillUnmount() {
     clearInterval(this.timer);
@@ -749,7 +838,11 @@ class Component extends DCLogic {
       toggle: () => this.setState({ open: this.state.open === i ? -1 : i })
     }));
     return {
-      img, athletes, counter, strip, steps, faqs, week, manif,
+      img, athletes, counter, strip, steps, faqs, week, manif, tp: (() => {
+        const tp = { count: String((this.state.tidx || 0) + 1).padStart(2, '0') + ' / 05', bar: (((this.state.tidx || 0) + 1) / 5 * 100) + '%', prev: () => this.stepT(-1), next: () => this.stepT(1) };
+        for (let i = 0; i < 5; i++) { tp['p' + i] = () => this.playT(i); tp['d' + i] = this.state.tplay === i ? 'none' : 'flex'; tp['c' + i] = this.state.tplay === i ? '' : 'is-idle'; tp['o' + i] = (this.state.tplay >= 0 && this.state.tplay !== i) ? '0.45' : '1'; }
+        return tp;
+      })(),
       next: () => this.go((typeof this._idx === 'number' ? this._idx : this.state.idx) + 1),
       prev: () => this.go((typeof this._idx === 'number' ? this._idx : this.state.idx) - 1),
       sent: this.state.sent,
